@@ -5,6 +5,7 @@ author: SirOswaldo
 website: https://www.kayteam.org
 api-version: 1.13
 softdepend: [ PlaceholderAPI, Vault ]
+depend: [KayTeamAPI]
 commands:
   SetHome:
     description: Set a home

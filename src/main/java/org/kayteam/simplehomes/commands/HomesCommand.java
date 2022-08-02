@@ -47,7 +47,7 @@ public class HomesCommand extends SimpleCommand {
                     if (player.equals(target)) {
                         Homes homes = homesManager.getHomes(player.getName());
                         if (homes.getHomes().size() > 0) {
-                            simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                            simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
                         } else {
                             messages.sendMessage(player, "homes.emptyHomes");
                         }
@@ -55,7 +55,7 @@ public class HomesCommand extends SimpleCommand {
                         if (player.hasPermission("simple.homes.other")) {
                             Homes homes = homesManager.getHomes(target.getName());
                             if (homes.getHomes().size() > 0) {
-                                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
                             } else {
                                 messages.sendMessage(player, "homes.emptyHomesOther", new String[][] {
                                         {"%player%", arguments[0]}
@@ -72,7 +72,7 @@ public class HomesCommand extends SimpleCommand {
                             homesManager.loadHomes(arguments[0]);
                             Homes homes = homesManager.getHomes(arguments[0]);
                             if (homes.getHomes().size() > 0) {
-                                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
                             } else {
                                 messages.sendMessage(player, "homes.emptyHomesOther", new String[][] {
                                         {"%player%", arguments[0]}
@@ -90,7 +90,7 @@ public class HomesCommand extends SimpleCommand {
             } else {
                 Homes homes = homesManager.getHomes(player.getName());
                 if (homes.getHomes().size() > 0) {
-                    simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                    simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
                 } else {
                     messages.sendMessage(player, "homes.emptyHomes");
                 }

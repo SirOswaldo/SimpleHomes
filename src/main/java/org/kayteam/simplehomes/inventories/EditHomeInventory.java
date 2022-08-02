@@ -18,10 +18,10 @@
 package org.kayteam.simplehomes.inventories;
 
 import org.bukkit.entity.Player;
+import org.kayteam.api.inventory.SimpleInventoryBuilder;
 import org.kayteam.simplehomes.SimpleHomes;
 import org.kayteam.simplehomes.home.Home;
 import org.kayteam.simplehomes.home.Homes;
-import org.kayteam.simplehomes.util.inventory.SimpleInventoryBuilder;
 
 public class EditHomeInventory extends SimpleInventoryBuilder {
 
@@ -49,7 +49,7 @@ public class EditHomeInventory extends SimpleInventoryBuilder {
         } else if (action.startsWith("[return]")) {
             if (getFrom().equals("gui")) {
                 Homes homes = simpleHomes.getHomesManager().getHomes(player.getName());
-                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
             } else {
                 player.closeInventory();
             }

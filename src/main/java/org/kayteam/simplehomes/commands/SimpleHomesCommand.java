@@ -25,8 +25,10 @@ import org.kayteam.simplehomes.inventories.SimpleHomesInventory;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class SimpleHomesCommand extends SimpleCommand {
 

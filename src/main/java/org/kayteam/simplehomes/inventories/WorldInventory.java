@@ -18,8 +18,8 @@
 package org.kayteam.simplehomes.inventories;
 
 import org.bukkit.entity.Player;
+import org.kayteam.api.inventory.SimpleInventoryBuilder;
 import org.kayteam.simplehomes.SimpleHomes;
-import org.kayteam.simplehomes.util.inventory.SimpleInventoryBuilder;
 
 public class WorldInventory extends SimpleInventoryBuilder {
 

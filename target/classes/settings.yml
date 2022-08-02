@@ -107,7 +107,7 @@ inventory:
         left-click-actions:
           - "[cancel]"
   homes:
-    rows: 3
+    rows: 4
     title: "Homes Inventory"
     items:
       panel:
@@ -158,16 +158,12 @@ inventory:
         slots:
           - "0-1"
           - "9"
-        click-actions:
-          - '[sound] ITEM_PICKUP'
       orange-panel:
         material: "ORANGE_STAINED_GLASS_PANE"
         name: "&6&lSimple&f&lHomes"
         slots:
           - "35-36"
           - "43-44"
-        click-actions:
-          - '[sound] ITEM_PICKUP'
       world-settings-menu:
         material: PAPER
         name: "&8▪ &c&lWorld settings menu &8▪"
@@ -208,14 +204,13 @@ inventory:
           - "8"
         left-click-actions:
           - "[close]"
-          - "[sound] NOTE_PLING"
   vault:
     title: "&8▪ &c&lVault settings menu"
     rows: 5
-    update-inverval: 4
-    status:
-      enabled: "&aENABLED"
-      disabled: "&cDISABLED"
+    update-inverval: 2
+    texts:
+      enabled: "&a&lEnabled"
+      disabled: "&c&lDisabled"
     items:
       gray-panel:
         material: "GRAY_STAINED_GLASS_PANE"
@@ -310,10 +305,13 @@ inventory:
           - "8"
         left-click-actions:
           - "[close]"
-
-
   world:
     title: "&8▪ &c&lDisabled world menu"
+    rows: 5
+    update-interval: 2
+    texts:
+      enabled: "&a&lEnabled"
+      disabled: "&c&lEnabled"
     items:
       gray-panel:
         material: "GRAY_STAINED_GLASS_PANE"
@@ -329,32 +327,52 @@ inventory:
           - "43-44"
 
       set-home-settings:
+        update: true
         material: CHEST
         name: "&8▪ &c&lSet home settings &8▪"
         lore:
           - ""
-          - "&6&lEnable &7► %set-home-status%"
+          - "&6&lStatus &7► %set-home-status%"
           - ""
           - "&8▪ &aLeft click to toggle"
           - "&8▪ &aRight click to manage worlds"
+        slots:
+          - "20"
+        left-click-actions:
+          - "[toggle-set-home]"
+        right-click-actions:
+          - "[manage-set-home-worlds]"
       teleportFrom:
+        update: true
         material: CHEST
-        name: "&3Teleport from"
+        name: "&8▪ &c&lTeleport from settings &8▪"
         lore:
           - ""
-          - "&6Enable&e: %status%"
+          - "&6&lStatus &7► %teleport-from-status%"
           - ""
-          - "&7Left Click to change status"
-          - "&7Right Click to manage worlds"
+          - "&8▪ &aLeft click to toggle"
+          - "&8▪ &aRight click to manage worlds"
+        slots:
+          - "22"
+        left-click-actions:
+          - "[toggle-teleport-from]"
+        right-click-actions:
+          - "[manage-teleport-from-worlds]"
       teleportTo:
         material: CHEST
-        name: "&3Teleport to"
+        name: "&8▪ &c&lTeleport to settings &8▪"
         lore:
           - ""
-          - "&6Enable&e: %status%"
+          - "&6&lStatus &7► %teleport-to-status%"
           - ""
-          - "&7Left Click to change status"
-          - "&7Right Click to manage worlds"
+          - "&8▪ &aLeft click to toggle"
+          - "&8▪ &aRight click to manage worlds"
+        slots:
+          - "24"
+        left-click-actions:
+          - "[toggle-teleport-to]"
+        right-click-actions:
+          - "[manage-teleport-to-worlds]"
 
       return-button:
         material: "ARROW"
@@ -376,7 +394,6 @@ inventory:
           - "8"
         left-click-actions:
           - "[close]"
-
 
   worldSetHome:
     title: "Disabled Set Home Worlds"
@@ -479,8 +496,11 @@ inventory:
 
   homeEditor:
     title: "&8▪ &c&lHome editor"
-    rows: 4
-    update-inverval: 4
+    rows: 5
+    update-inverval: 2
+    texts:
+      public: "&a&lPublic"
+      private: "&c&lPrivate"
     items:
       gray-panel:
         material: "GRAY_STAINED_GLASS_PANE"
@@ -492,8 +512,8 @@ inventory:
         material: "ORANGE_STAINED_GLASS_PANE"
         name: "&6&lSimple&f&lHomes"
         slots:
-          - "26"
-          - "34-35"
+          - "35"
+          - "43-44"
       home-information:
         material: "CHEST"
         name: "%home-display-name%"
@@ -510,21 +530,35 @@ inventory:
           - '&6&l┏&c&lInfo'
           - '&6&l┣►&fType &7► &cPRIVATE &aPUBLIC'
           - '&6&l┣►&fCost &7► &e$120.0'
+
+      public-status:
+        material: "PAPER"
+        name: "&8▪ &c&lHome public &8▪"
+        lore:
+          - ""
+          - "&6&lStatus &7► %set-home-status%"
+          - ""
+          - "&8▪ &aLeft click to toggle"
+        slots:
+          - "30"
+      public-teleport-cost: ""
+      private-players-permited: ""
+
       return-button:
         material: "ARROW"
         name: "&8▪ &c&lReturn &8▪"
         lore:
-          - "&6"
+          - ""
           - "&8▪ &aLeft click to return!"
         slots:
-          - "27"
+          - "36"
         left-click-actions:
           - "[return]"
       close-button:
         material: "BARRIER"
         name: "&8▪ &c&lClose &8▪"
         lore:
-          - "&6"
+          - ""
           - "&8▪ &aLeft click to close!"
         slots:
           - "8"

@@ -18,13 +18,13 @@
 package org.kayteam.simplehomes.inventories;
 
 import org.bukkit.entity.Player;
+import org.kayteam.api.inventory.SimpleInventoryBuilder;
 import org.kayteam.api.yaml.Yaml;
 import org.kayteam.simplehomes.SimpleHomes;
 import org.kayteam.simplehomes.home.Home;
 import org.kayteam.simplehomes.home.Homes;
 import org.kayteam.simplehomes.home.HomesManager;
 import net.milkbowl.vault.economy.Economy;
-import org.kayteam.simplehomes.util.inventory.SimpleInventoryBuilder;
 
 public class DeleteHomeConfirmInventory extends SimpleInventoryBuilder {
 
@@ -93,7 +93,7 @@ public class DeleteHomeConfirmInventory extends SimpleInventoryBuilder {
             player.closeInventory();
             if (homes.getHomes().size() > 0) {
                 if (getFrom().equals("gui")) {
-                    simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                    simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
                 }
             } else {
                 if (player.getName().equals(owner)) {
@@ -109,7 +109,7 @@ public class DeleteHomeConfirmInventory extends SimpleInventoryBuilder {
             if (getFrom().equals("gui")) {
                 HomesManager homesManager = simpleHomes.getHomesManager();
                 Homes homes = homesManager.getHomes(home.getOwner());
-                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, 1));
+                simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, 1));
             }
         }
     }

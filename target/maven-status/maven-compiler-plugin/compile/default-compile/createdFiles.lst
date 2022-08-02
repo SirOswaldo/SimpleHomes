@@ -14,7 +14,6 @@ org\kayteam\simplehomes\inventories\WorldTeleportFrom.class
 org\kayteam\simplehomes\placeholderapi\SimpleHomesExpansion.class
 org\kayteam\simplehomes\inputs\VaultOverwriteHomeInput.class
 org\kayteam\simplehomes\inputs\VaultTeleportInput.class
-org\kayteam\simplehomes\util\inventory\SimpleInventoryBuilder.class
 org\kayteam\simplehomes\inventories\VaultInventory.class
 org\kayteam\simplehomes\inventories\WorldInventory.class
 org\kayteam\simplehomes\inputs\VaultSetHomeInput.class

@@ -18,12 +18,12 @@
 package org.kayteam.simplehomes.inventories;
 
 import org.bukkit.entity.Player;
+import org.kayteam.api.inventory.SimpleInventoryBuilder;
 import org.kayteam.simplehomes.SimpleHomes;
 import org.kayteam.simplehomes.inputs.VaultDeleteHomeInput;
 import org.kayteam.simplehomes.inputs.VaultOverwriteHomeInput;
 import org.kayteam.simplehomes.inputs.VaultSetHomeInput;
 import org.kayteam.simplehomes.inputs.VaultTeleportInput;
-import org.kayteam.simplehomes.util.inventory.SimpleInventoryBuilder;
 
 public class VaultInventory extends SimpleInventoryBuilder {
 

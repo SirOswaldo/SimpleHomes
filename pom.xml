@@ -88,8 +88,8 @@
         <dependency>
             <groupId>com.github.KayTeam-Studio</groupId>
             <artifactId>KayTeamAPI</artifactId>
-            <version>v1.2.6</version>
-            <scope>compile</scope>
+            <version>v1.2.7</version>
+            <scope>provided</scope>
         </dependency>
         <!-- Vault -->
         <dependency>

@@ -19,6 +19,7 @@ package org.kayteam.simplehomes.inventories;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.kayteam.api.inventory.SimpleInventoryBuilder;
 import org.kayteam.api.yaml.Yaml;
 import org.kayteam.simplehomes.SimpleHomes;
 import org.kayteam.simplehomes.home.Home;
@@ -26,7 +27,6 @@ import org.kayteam.simplehomes.home.Homes;
 import org.kayteam.simplehomes.tasks.TeleportTask;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Location;
-import org.kayteam.simplehomes.util.inventory.SimpleInventoryBuilder;
 
 import java.util.List;
 import java.util.Objects;
@@ -39,6 +39,7 @@ public class HomesInventory extends SimpleInventoryBuilder {
 
     public HomesInventory(SimpleHomes simpleHomes, Player player, Homes homes, int page) {
         super(simpleHomes.getSettings(), "inventory.homes", "cmd", player);
+        Yaml settings = simpleHomes.getSettings();
         this.simpleHomes = simpleHomes;
         this.homes = homes;
         this.page = page;
@@ -63,7 +64,7 @@ public class HomesInventory extends SimpleInventoryBuilder {
                     });
                 });
                 // Left Click
-                addLeftAction(i, (player, slot) -> {
+                addLeftAction(i, (player1, slot) -> {
                     player.closeInventory();
                     Yaml messages = simpleHomes.getMessages();
                     if (settings.getBoolean("world.disableTeleportFrom.enable") && !player.hasPermission("simple.bypass.disabled.worlds")) {
@@ -127,10 +128,10 @@ public class HomesInventory extends SimpleInventoryBuilder {
                     }
                 });
                 // Middle Click
-                addMiddleAction(i, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new EditHomeInventory(simpleHomes, home, "gui", player)));
+                addMiddleAction(i, (player1, slot) -> simpleHomes.getInventoryManager().openInventory(player, new EditHomeInventory(simpleHomes, home, "gui", player)));
 
                 // Right Click
-                addRightAction(i, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new DeleteHomeConfirmInventory(simpleHomes, home, "gui", player)));
+                addRightAction(i, (player1, slot) -> simpleHomes.getInventoryManager().openInventory(player, new DeleteHomeConfirmInventory(simpleHomes, home, "gui", player)));
             }
         }
     }
@@ -242,7 +243,7 @@ public class HomesInventory extends SimpleInventoryBuilder {
         // Previous
         if (page > 1) {
             addItem(((rows + 2) * 9) - 9, () -> settings.getItemStack("inventory.homes.items.prevPage"));
-            addLeftAction(((rows + 2) * 9) - 9, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, page - 1)));
+            addLeftAction(((rows + 2) * 9) - 9, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, page - 1)));
         }
         // Close
         addItem(((rows + 2) * 9) - 5, () -> settings.getItemStack("inventory.homes.items.close"));
@@ -250,7 +251,7 @@ public class HomesInventory extends SimpleInventoryBuilder {
         // Next
         if (homes.getHomes().size() > (page * (4 * 9))) {
             addItem(((rows + 2) * 9) - 1, () -> settings.getItemStack("inventory.homes.items.nextPage"));
-            addLeftAction(((rows + 2) * 9) - 9, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, homes, page + 1)));
+            addLeftAction(((rows + 2) * 9) - 9, (player, slot) -> simpleHomes.getInventoryManager().openInventory(player, new HomesInventory(simpleHomes, player, homes, page + 1)));
         }
     }
 
