@@ -1,1 +1,1 @@
-# SimpleHomes
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/01db5ca5bbc344d68b2fb11643f4ad6b)](https://www.codacy.com/gh/KayTeam-Studio/SimpleHomes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KayTeam-Studio/SimpleHomes&amp;utm_campaign=Badge_Grade)
